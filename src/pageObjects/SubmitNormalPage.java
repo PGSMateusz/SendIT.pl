@@ -20,9 +20,18 @@ public class SubmitNormalPage extends AbstractPage {
 		return this;
 	}
 
-	public SubmitNormalResultPage submitForm (){
-		
+	public SubmitNormalResultPage acceptParcel() {
+		driver.findElement(By.cssSelector(".acceptParcel")).click();
 		return new SubmitNormalResultPage(driver, errorCollector);
 	}
 	
+	public SubmitNormalPage submitOrder() {
+		driver.findElement(By.cssSelector(".buttonOrderSubmit.orderUps")).click();
+		return this;
+	}
+	
+	public SubmitNormalPage submitOrderCourier() {
+		driver.findElement(By.cssSelector(".buttonOrder.buttonOrderConfirm")).click();
+		return this;
+	}
 }

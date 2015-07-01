@@ -37,7 +37,6 @@ WebDriver driver;
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
 	    shouldLoginIntoAccount();
-
 	}
 
 	@After
@@ -52,11 +51,11 @@ WebDriver driver;
 		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();
 		SubmitNormalPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
-		SubmitNormalResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().submitForm();
+		SubmitNormalResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
+		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("NADAJ PACZK "));	
 		
-		//Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));
+		onSubmitCurrentPage.submitOrder();
+		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("PODSUMOWANIE I P£ATNOå∆"));		
 	}
-	
-	
 
 }

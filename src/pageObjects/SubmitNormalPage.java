@@ -34,4 +34,11 @@ public class SubmitNormalPage extends AbstractPage {
 		driver.findElement(By.cssSelector(".buttonOrder.buttonOrderConfirm")).click();
 		return this;
 	}
+	
+	// Assertions on existing Web elements
+	public LoginPage checkIfElementsArePresent() {
+		if(!isElementPresent(By.cssSelector(".structSubHeader>h1"))) errorCollector.addError(new Throwable("brak nag³ówka 'NADAJ PACZKÊ'"));
+		return new LoginPage(driver, errorCollector);
+	}
+	
 }

@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.HomePage;
+import pageObjects.LoginPage;
 import pageObjects.SubmitNormalPage;
+import pageResults.LoginResultPage;
 import pageResults.SubmitNormalResultPage;
 import tests.LoginPageTest;
 
@@ -18,10 +20,10 @@ public class SubmitNormalPageTest {
 	
 WebDriver driver;
 LoginPageTest accountTest;
-	
+
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
-//	private void shouldLoginIntoAccount() {
+	private void shouldLoginIntoAccount() {
 //		logger.info("About to run the test");
 //		HomePage onHomePage = new HomePage(driver, null);
 //		onHomePage = onHomePage.navigateToWebApp();
@@ -29,14 +31,15 @@ LoginPageTest accountTest;
 //		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();
 //		
 //		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));		
-//	}
+		accountTest.shouldLoginIntoAccount();
+	}
 
 	@Before
 	public void setUp() throws Exception {
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
-	    accountTest.shouldLoginIntoAccount();
-	    // shouldLoginIntoAccount();
+	    //accountTest.shouldLoginIntoAccount();
+	     shouldLoginIntoAccount();
 	}
 
 	@After
@@ -46,7 +49,7 @@ LoginPageTest accountTest;
 	}
 	
 	@Test
-	public void shouldSubmitNewPackage(){
+	public void shouldSubmitNewPackage() {
 		logger.info("About to run the test");
 		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();

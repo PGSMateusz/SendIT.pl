@@ -10,33 +10,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.HomePage;
-import pageObjects.LoginPage;
 import pageObjects.SubmitNormalPage;
-import pageResults.LoginResultPage;
 import pageResults.SubmitNormalResultPage;
 import tests.LoginPageTest;
 
 public class SubmitNormalPageTest {
 	
 WebDriver driver;
+LoginPageTest accountTest;
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
-	private void shouldLoginIntoAccount() {
-		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver, null);
-		onHomePage = onHomePage.navigateToWebApp();
-		LoginPage onLoginPage = onHomePage.checkIfElementsArePresent().clickOnLogin();
-		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();
-		
-		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));		
-	}
+//	private void shouldLoginIntoAccount() {
+//		logger.info("About to run the test");
+//		HomePage onHomePage = new HomePage(driver, null);
+//		onHomePage = onHomePage.navigateToWebApp();
+//		LoginPage onLoginPage = onHomePage.checkIfElementsArePresent().clickOnLogin();
+//		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();
+//		
+//		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));		
+//	}
 
 	@Before
 	public void setUp() throws Exception {
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
-	    shouldLoginIntoAccount();
+	    accountTest.shouldLoginIntoAccount();
+	    // shouldLoginIntoAccount();
 	}
 
 	@After

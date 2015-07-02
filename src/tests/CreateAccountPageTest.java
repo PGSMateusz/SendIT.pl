@@ -13,7 +13,6 @@ import pageObjects.CreateAccountPage;
 import pageObjects.HomePage;
 import pageResults.CreateAccountResultPage;
 
-
 public class CreateAccountPageTest {
 
 	WebDriver driver;

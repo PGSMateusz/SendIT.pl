@@ -17,4 +17,8 @@ public class SubmitNormalResultPage extends AbstractPage {
 		return driver.findElement(By.cssSelector("h1")).getText();
 	}
 	
+	public String getEndConfirmationMessage() {
+		return driver.findElement(By.cssSelector("#confirmation>h2")).getText();
+	}
+
 }

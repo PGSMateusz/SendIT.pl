@@ -19,7 +19,6 @@ import tests.LoginPageTest;
 public class SubmitNormalPageTest {
 	
 WebDriver driver;
-//LoginPageTest accountTest;
 
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
@@ -31,15 +30,13 @@ WebDriver driver;
 		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();
 		
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));		
-//		accountTest.shouldLoginIntoAccount();
 	}
 
 	@Before
 	public void setUp() throws Exception {
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
-	    //accountTest.shouldLoginIntoAccount();
-	     shouldLoginIntoAccount();
+	    shouldLoginIntoAccount();
 	}
 
 	@After
@@ -58,7 +55,10 @@ WebDriver driver;
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("NADAJ PACZK "));	
 		
 		onSubmitCurrentPage.submitOrder();
-		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("PODSUMOWANIE I P£ATNOå∆"));		
+		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("PODSUMOWANIE I P£ATNOå∆"));	
+		
+		onSubmitCurrentPage.submitOrderCourier();
+		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKO—CZONA"));	
 	}
 
 }

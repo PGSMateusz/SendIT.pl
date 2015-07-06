@@ -47,6 +47,7 @@ WebDriver driver;
 	
 	@Test
 	public void shouldSubmitNewPackage() {
+		//Nadaj Paczkê
 		logger.info("About to run the test");
 		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();
@@ -54,9 +55,11 @@ WebDriver driver;
 		SubmitNormalResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("NADAJ PACZKÊ"));	
 		
+		//Podsumowanie i P³atnoœæ
 		onSubmitCurrentPage.submitOrder();
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("PODSUMOWANIE I P£ATNOŒÆ"));	
 		
+		//Transakcja Zakoñczona
 		onSubmitCurrentPage.submitOrderCourier();
 		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKOÑCZONA"));	
 	}

@@ -19,7 +19,7 @@ import tests.LoginPageTest;
 public class SubmitNormalPageTest {
 	
 WebDriver driver;
-LoginPageTest accountTest;
+//LoginPageTest accountTest;
 
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
@@ -31,7 +31,7 @@ LoginPageTest accountTest;
 		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();
 		
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));		
-		accountTest.shouldLoginIntoAccount();
+//		accountTest.shouldLoginIntoAccount();
 	}
 
 	@Before

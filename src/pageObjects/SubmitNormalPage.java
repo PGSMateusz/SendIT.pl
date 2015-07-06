@@ -11,7 +11,6 @@ public class SubmitNormalPage extends AbstractPage {
 
 	public SubmitNormalPage(WebDriver driver, ErrorCollector errorCollector) {
 		super(driver, errorCollector);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public SubmitNormalPage submitActionFromTemplate() {

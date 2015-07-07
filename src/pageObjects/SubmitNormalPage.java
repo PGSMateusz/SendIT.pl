@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -9,8 +8,8 @@ import pageResults.SubmitNormalResultPage;
 
 public class SubmitNormalPage extends AbstractPage {
 
-	public SubmitNormalPage(WebDriver driver, ErrorCollector errorCollector) {
-		super(driver, errorCollector);
+	public SubmitNormalPage(WebDriver driver) {
+		super(driver);
 	}
 	
 	public SubmitNormalPage submitActionFromTemplate() {
@@ -21,7 +20,7 @@ public class SubmitNormalPage extends AbstractPage {
 
 	public SubmitNormalResultPage acceptParcel() {
 		driver.findElement(By.cssSelector(".acceptParcel")).click();
-		return new SubmitNormalResultPage(driver, errorCollector);
+		return new SubmitNormalResultPage(driver);
 	}
 	
 	public SubmitNormalPage submitOrder() {
@@ -34,10 +33,15 @@ public class SubmitNormalPage extends AbstractPage {
 		return this;
 	}
 	
+	public SubmitNormalPage myCourierPackages() {
+		driver.findElement(By.xpath("//a[contains(text(),'Moje przesy³ki')]")).click();
+		return this;
+	}
+	
 	// Assertions on existing Web elements
 	public LoginPage checkIfElementsArePresent() {
 		if(!isElementPresent(By.cssSelector(".structSubHeader>h1"))) errorCollector.addError(new Throwable("brak nag³ówka 'NADAJ PACZKÊ'"));
-		return new LoginPage(driver, errorCollector);
+		return new LoginPage(driver);
 	}
 	
 }

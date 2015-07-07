@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,9 +11,8 @@ import pageResults.LoginResultPage;
 
 public class LoginPage extends AbstractPage {
 	
-	public LoginPage(WebDriver driver, ErrorCollector errorCollector) {
-		super(driver, errorCollector);
-		// TODO Auto-generated constructor stub
+	public LoginPage(WebDriver driver) {
+		super(driver);
 	}
 
 	// Data Login to the Web Page
@@ -33,20 +31,20 @@ public class LoginPage extends AbstractPage {
 		driver.findElement(By.id("username")).sendKeys("TESTY_AUTOMATYCZNE");
 		driver.findElement(By.id("password")).clear();
 		driver.findElement(By.id("password")).sendKeys("rambo_" + date1);
-		return new LoginPage(driver, errorCollector);
+		return new LoginPage(driver);
 		
 	}
 
 	// Click Login button
 	public LoginResultPage submitForm() {
 		driver.findElement(By.cssSelector("button.btn-default-large")).click();
-		return new LoginResultPage(driver, errorCollector);
+		return new LoginResultPage(driver);
 	}
 	
 	// Assertions on existing Web elements
 	public LoginPage checkIfElementsArePresent() {
 		if(!isElementPresent(By.cssSelector("main.login > h2"))) errorCollector.addError(new Throwable("brak nag³ówka 'LOGOWANIE'"));
-		return new LoginPage(driver, errorCollector);
+		return new LoginPage(driver);
 	}
 	
 }

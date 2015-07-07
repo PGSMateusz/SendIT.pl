@@ -34,7 +34,7 @@ public class CreateAccountPageTest {
 	@Test
 	public void shouldCreateNewAccount() {
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver, null);
+		HomePage onHomePage = new HomePage(driver);
 		onHomePage = onHomePage.navigateToWebApp();
 		CreateAccountPage onCreateAccountPage = onHomePage.checkIfElementsArePresent().clickOnCreateAccount();
 		CreateAccountResultPage onResultPage = onCreateAccountPage.checkIfElementsArePresent().createAccountAction().sumbitForm();

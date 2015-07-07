@@ -12,9 +12,8 @@ public class AbstractPage {
 	protected WebDriver driver;
 	protected ErrorCollector errorCollector;
 	
-	public AbstractPage (WebDriver driver, ErrorCollector errorCollector){
+	public AbstractPage (WebDriver driver){
 		this.driver = driver;
-		this.errorCollector = errorCollector;
 	    this.driver.manage().window().maximize();
 	    this.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -25,7 +24,7 @@ public class AbstractPage {
 	
 	public HomePage navigateToWebApp() {
 		driver.navigate().to("http://www.sendit/");
-		return new HomePage(driver, errorCollector);
+		return new HomePage(driver);
 		
 	}
 	

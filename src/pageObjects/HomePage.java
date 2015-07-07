@@ -7,7 +7,6 @@ public class HomePage extends AbstractPage{
 
 	public HomePage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 
 	public LoginPage clickOnLogin() {

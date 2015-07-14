@@ -12,10 +12,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObjects.CreateAccountPage;
 import pageObjects.HomePage;
 import pageResults.CreateAccountResultPage;
+import utilities.JDBConnection;
 
 public class CreateAccountPageTest {
 
-	WebDriver driver;
+WebDriver driver;
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
@@ -23,6 +24,7 @@ public class CreateAccountPageTest {
 	public void setUp() throws Exception {
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
+	    JDBConnection.main(null);
 	}
 	
 	@After
@@ -41,6 +43,4 @@ public class CreateAccountPageTest {
 		
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Dziêkujemy za Twoje zainteresowanie platform¹ wysy³kow¹ Sendit.pl!"));	
 	}
-	
-	
 }

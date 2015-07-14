@@ -7,7 +7,7 @@ public class JDBConnection {
 	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	   static final String DB_URL = "jdbc:mysql://192.168.50.50:3306";
 
-	   //  Database credentials
+	   // Database credentials
 	   static final String USER = "root";
 	   static final String PASS = "";
 	   
@@ -15,39 +15,39 @@ public class JDBConnection {
 	   Connection conn = null;
 	   Statement stmt = null;
 	   try{
-	      //STEP 2: Register JDBC driver
+	      // Register JDBC driver
 	      Class.forName("com.mysql.jdbc.Driver");
 
-	      //STEP 3: Open a connection
+	      // Open a connection
 	      System.out.println("Connecting to a selected database...");
 	      conn = DriverManager.getConnection(DB_URL, USER, PASS);
 	      System.out.println("Connected database successfully...");
 	      
-	      //STEP 4: Execute a query
+	      // Execute a query
 	      System.out.println("Creating statement...");
 	      stmt = conn.createStatement();
 	      String sql = "DELETE from sendit_api.user where login = 'REGISTRATION_TEST';";
 	      stmt.executeUpdate(sql);
    
 	   }catch(SQLException se){
-	      //Handle errors for JDBC
+	      // Handle errors for JDBC
 	      se.printStackTrace();
 	   }catch(Exception e){
-	      //Handle errors for Class.forName
+	      // Handle errors for Class.forName
 	      e.printStackTrace();
 	   }finally{
-	      //finally block used to close resources
+	      // finally block used to close resources
 	      try{
 	         if(stmt!=null)
 	            conn.close();
 	      }catch(SQLException se){
-	      }// do nothing
+	      }
 	      try{
 	         if(conn!=null)
 	            conn.close();
 	      }catch(SQLException se){
 	         se.printStackTrace();
-	      }//end finally try
-	   }//end try
-	}//end main
-	}//end JDBCExample
+	      }// end finally try
+	   }// end try
+	}// end main
+	}// end JDBCExample

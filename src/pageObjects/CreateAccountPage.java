@@ -27,7 +27,7 @@ public class CreateAccountPage extends AbstractPage {
 	    driver.findElement(By.id("registration_email")).sendKeys("mateusz.dabrowski@example.pl");
 	    driver.findElement(By.id("registration_termsOfService")).click();
 	    driver.findElement(By.id("registration_personalDataAgreement")).click();
-//	    driver.findElement(By.id("registration_commercialInformationAgreement")).click();
+     // driver.findElement(By.id("registration_commercialInformationAgreement")).click();
 		return new CreateAccountPage(driver);
 	}
 

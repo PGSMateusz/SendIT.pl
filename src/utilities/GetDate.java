@@ -21,5 +21,4 @@ public class GetDate {
  System.out.println(date1);
  
  }
- 
 }

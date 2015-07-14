@@ -42,6 +42,4 @@ public class LoginPageTest {
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("Zalogowany jako: Dariusz Juüwik (nr klienta: 832)"));
 	}
 	
-	
-	
 }

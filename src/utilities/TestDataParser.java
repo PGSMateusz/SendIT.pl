@@ -1,5 +1,7 @@
 package utilities;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import utilities.DBConnection.ConnectionData;
@@ -27,19 +29,32 @@ public class TestDataParser {
         System.out.println("DONE!");
     }
     
-    public static void getLatesUserOrder() {
-        final String sql = String.format(
+    public static void getLatesUserOrder() throws SQLException {
+ 
+    	final String sql = String.format(
         		"SELECT order_nr FROM sendit_api.`order` WHERE date = (SELECT MAX(date) FROM sendit_api.`order` "
         		+ "WHERE s_email = 'dariusz.juzwik@allegro.pl') AND s_email = 'dariusz.juzwik@allegro.pl';");
         System.out.println("Connecting to a selected database...");
         final DBConnection dbConnection = new DBConnection(ConnectionData.SendIT_LOKAL);
         System.out.println("Connected database successfully...");
-        //dbConnection.runSqlStatement(sql); // Nie wiedzieæ czemu nie ³yka tego
+        dbConnection.runSqlStatement(sql); // Nie wiedzieæ czemu nie ³yka tego
         System.out.println("Creating statement...");
-        dbConnection.runSqlUpdate(sql);
+        //dbConnection.runSqlUpdate(sql);
         System.out.println("Execute...");
         dbConnection.disconnect();
         System.out.println("DONE!");
+        ResultSet rs = dbConnection.runSqlStatement(sql);
+	      while(rs.next()){
+
+	          String order = rs.getString("order_nr");
+
+
+	          //Display values
+	          System.out.print("Order: " + order);
+
+	       }
+	       rs.close();
+      
     }
 	
 }

@@ -32,9 +32,28 @@ public class JDBConnection {
 	      // Execute a query
 	      System.out.println("Creating statement...");
 	      stmt = conn.createStatement();
-	      String sql = "DELETE from sendit_api.user where login = 'REGISTRATION_TEST';";
-	      stmt.executeUpdate(sql);
-   
+	      String sql = "SELECT * FROM sendit_api.`order` WHERE date = (SELECT MAX(date) FROM sendit_api.`order` "
+	        		+ "WHERE s_email = 'dariusz.juzwik@allegro.pl') AND s_email = 'dariusz.juzwik@allegro.pl';";
+	      //stmt.executeUpdate(sql);
+	      stmt.execute(sql);
+	     
+	      ResultSet rs = stmt.executeQuery(sql);
+	      
+	      while(rs.next()){
+	          //Retrieve by column name
+	          //int order  = rs.getInt("author");
+	          String order = rs.getString("order_nr");
+//	          int age = rs.getInt("age");
+//	          String first = rs.getString("first");
+//	          String last = rs.getString("last");
+
+	          //Display values
+	          System.out.print("Order: " + order);
+//	          System.out.print(", Age: " + age);
+//	          System.out.print(", First: " + first);
+//	          System.out.println(", Last: " + last);
+	       }
+	       rs.close();
 	   }catch(SQLException se){
 	      // Handle errors for JDBC
 	      se.printStackTrace();

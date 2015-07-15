@@ -11,9 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
-import pageObjects.SubmitNormalPage;
+import pageObjects.OrderCourierPage;
 import pageResults.LoginResultPage;
-import pageResults.SubmitNormalResultPage;
+import pageResults.OrderCourierResultPage;
 import tests.LoginPageTest;
 
 public class OrderCourierUPS {
@@ -39,7 +39,7 @@ LoginPageTest accountTest = new LoginPageTest();
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
 	    //accountTest.shouldLoginIntoAccount();
-	    shouldLoginIntoAccount();
+
 	}
 
 	@After
@@ -51,11 +51,12 @@ LoginPageTest accountTest = new LoginPageTest();
 	@Test
 	public void shouldSubmitNewPackage() {
 		//Nadaj Paczkê
+	    shouldLoginIntoAccount();
 		logger.info("About to run the test");
 		HomePage onHomePage = new HomePage(driver);
 		onHomePage = onHomePage.navigateToWebApp();
-		SubmitNormalPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
-		SubmitNormalResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
+		OrderCourierPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
+		OrderCourierResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("NADAJ PACZKÊ"));	
 		
 		//Podsumowanie i P³atnoœæ
@@ -67,6 +68,7 @@ LoginPageTest accountTest = new LoginPageTest();
 		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKOÑCZONA"));	
 		
 		onSubmitCurrentPage.myCourierPackages();
+		assertEquals("000000832-000000682", driver.findElement(By.xpath("//form[@id='listUserParcelsForm']/table/tbody/tr/td[2]")).getText());
 	}
 
 }

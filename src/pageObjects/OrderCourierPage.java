@@ -4,36 +4,36 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import pageResults.SubmitNormalResultPage;
+import pageResults.OrderCourierResultPage;
 
-public class SubmitNormalPage extends AbstractPage {
+public class OrderCourierPage extends AbstractPage {
 
-	public SubmitNormalPage(WebDriver driver) {
+	public OrderCourierPage(WebDriver driver) {
 		super(driver);
 	}
 	
-	public SubmitNormalPage submitActionFromTemplate() {
+	public OrderCourierPage submitActionFromTemplate() {
 	    new Select(driver.findElement(By.id("Template"))).selectByVisibleText("TEST");
 	    driver.findElement(By.id("SendTypePack")).click();
 		return this;
 	}
 
-	public SubmitNormalResultPage acceptParcel() {
+	public OrderCourierResultPage acceptParcel() {
 		driver.findElement(By.cssSelector(".acceptParcel")).click();
-		return new SubmitNormalResultPage(driver);
+		return new OrderCourierResultPage(driver);
 	}
 	
-	public SubmitNormalPage submitOrder() {
+	public OrderCourierPage submitOrder() {
 		driver.findElement(By.cssSelector(".buttonOrderSubmit.orderUps")).click();
 		return this;
 	}
 	
-	public SubmitNormalPage submitOrderCourier() {
+	public OrderCourierPage submitOrderCourier() {
 		driver.findElement(By.cssSelector(".buttonOrder.buttonOrderConfirm")).click();
 		return this;
 	}
 	
-	public SubmitNormalPage myCourierPackages() {
+	public OrderCourierPage myCourierPackages() {
 		driver.findElement(By.xpath("//a[contains(text(),'Moje przesy³ki')]")).click();
 		return this;
 	}

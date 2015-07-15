@@ -11,9 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
-import pageObjects.SubmitNormalPage;
+import pageObjects.OrderCourierPage;
 import pageResults.LoginResultPage;
-import pageResults.SubmitNormalResultPage;
+import pageResults.OrderCourierResultPage;
 import tests.LoginPageTest;
 
 public class OrderCourierDPD {
@@ -54,8 +54,8 @@ LoginPageTest accountTest = new LoginPageTest();
 		logger.info("About to run the test");
 		HomePage onHomePage = new HomePage(driver);
 		onHomePage = onHomePage.navigateToWebApp();
-		SubmitNormalPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
-		SubmitNormalResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
+		OrderCourierPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
+		OrderCourierResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();
 		Assert.assertTrue(onResultPage.getConfirmationMessage().contains("NADAJ PACZKÊ"));	
 		
 		//Podsumowanie i P³atnoœæ

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.AbstractPage;
 
-public class SubmitNormalResultPage extends AbstractPage {
+public class OrderCourierResultPage extends AbstractPage {
 
-	public SubmitNormalResultPage(WebDriver driver) {
+	public OrderCourierResultPage(WebDriver driver) {
 		super(driver);
 	}
 

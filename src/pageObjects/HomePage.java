@@ -21,9 +21,9 @@ public class HomePage extends AbstractPage{
 
 	}
 	
-	public SubmitNormalPage clickOnSubmitNormal() {
+	public OrderCourierPage clickOnSubmitNormal() {
 		driver.findElement(By.cssSelector("li.submitNormal>a")).click();
-		return new SubmitNormalPage(driver);
+		return new OrderCourierPage(driver);
 	
 	}
 	

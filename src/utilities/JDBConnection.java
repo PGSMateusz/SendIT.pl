@@ -49,5 +49,5 @@ public class JDBConnection {
 	         se.printStackTrace();
 	      }// end finally try
 	   }// end try
-	}// end main
+	  }// end main
 	}// end JDBCExample

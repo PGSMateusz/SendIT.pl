@@ -2,6 +2,12 @@ package utilities;
 
 import java.sql.*;
 
+/**
+ * Not used anymore 
+ * 
+ * @author dabrowsm
+ */
+
 public class JDBConnection {
 	   // JDBC driver name and database URL
 	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  

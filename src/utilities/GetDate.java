@@ -4,6 +4,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
  
+/**
+ * Get current date need for test data
+ * 
+ * @author dabrowsm
+ */
+
 public class GetDate {
  
  public static void main(String[] args) {

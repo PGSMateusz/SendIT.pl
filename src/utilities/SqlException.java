@@ -3,7 +3,7 @@ package utilities;
 /**
  * Exception when an SQL error occurs.
  * 
- * @author hirscha
+ * @author dabrowsm
  */
 public class SqlException extends RuntimeException {
 

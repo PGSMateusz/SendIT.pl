@@ -18,5 +18,9 @@ public class OrderCourierResultPage extends AbstractPage {
 	public String getEndConfirmationMessage() {
 		return driver.findElement(By.cssSelector("#confirmation>h2")).getText();
 	}
+	
+	public String getLatesCourierPackagesMessage() {
+		return driver.findElement(By.xpath("//form[@id='listUserParcelsForm']/table/tbody/tr/td[2]")).getText();
+	}
 
 }

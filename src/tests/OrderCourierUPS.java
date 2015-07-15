@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import java.util.logging.Logger;
 
 import org.junit.After;
@@ -15,6 +17,7 @@ import pageObjects.OrderCourierPage;
 import pageResults.LoginResultPage;
 import pageResults.OrderCourierResultPage;
 import tests.LoginPageTest;
+import utilities.TestDataParser;
 
 public class OrderCourierUPS {
 	
@@ -68,7 +71,8 @@ LoginPageTest accountTest = new LoginPageTest();
 		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKOÑCZONA"));	
 		
 		onSubmitCurrentPage.myCourierPackages();
-		assertEquals("000000832-000000682", driver.findElement(By.xpath("//form[@id='listUserParcelsForm']/table/tbody/tr/td[2]")).getText());
+		//assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
+		//Assert.assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
 	}
 
 }

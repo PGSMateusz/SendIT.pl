@@ -42,36 +42,19 @@ public class Settings {
     /***
      * Sales Solutions user informations.
      */
-    public static class SaSo {
+    public static class SendIT {
 
-        /** The URL for SaSO. */
-        public static final String SASO_URL =
-                "http://krfeaas21.emea.vorwerk.org:8180/saso-core-pt/login.jsp";
+        /** The URL for SendIT. */
+        public static final String SendIT_URL = "http://www.sendit/logowanie";
        
-        /** The logout URL for SaSO. */
-        public static final String SASO_LOGOUT_URL =
-                "http://krfeaas21.emea.vorwerk.org:8180/saso-core-pt/j_spring_security_logout";       
+        /** The logout URL for SendIT. */
+        public static final String SendIT_LOGOUT_URL = "";       
        
-        /** The SaSO user name. */
-        public static final String SASO_USER = "dev";
+        /** The SendIT user name. */
+        public static final String SendIT_USER = "TESTY_AUTOMATYCZNE";
 
-        /** The SaSo password. */
-        public static final String SASO_PASSWORD = "dev";
+        /** The SendIT password. */
+        public static final String SendIT_PASSWORD = "rambo_20150715";
         
-        /** The URL for SaSO PL. */
-        public static final String SASO_URL_PL =
-                "http://krfeaas21.emea.vorwerk.org:8180/saso-core-pl/login.jsp";
-        
-        /** The logout URL for SaSO PL. */
-        public static final String SASO_LOGOUT_URL_PL =
-                "http://krfeaas21.emea.vorwerk.org:8180/saso-core-pl/j_spring_security_logout";
-        
-        /** The SaSO PL user name. */
-        public static final String SASO_USER_PL = "dev";
-
-        /** The SaSo PL password. */
-        public static final String SASO_PASSWORD_PL = "dev";
-        
-        public static final String SASO_ENVIRONMENT_DEV_PATHNAME = "AMDEV";
     }
 }

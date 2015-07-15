@@ -1,5 +1,11 @@
 package utilities;
 
+/**
+ * Class holding static test data like DB, usernames etc.
+ * 
+ * @author dabrowsm
+ */
+
 public class Settings {
 
     public static class Common {
@@ -19,15 +25,8 @@ public class Settings {
         /** Driver class name for SaSo db. */
         public static final String SendIT_LOKAL_DB_DRIVER = "com.mysql.jdbc.Driver";
 
-        /** Driver class name for H2 db. */
-        public static final String H2_DB_DRIVER = "com.mysql.jdbc.Driver";
-
         /** Connection string to SaSo db. */
         public static final String SendIT_LOKAL_DB_CONNECTION_STRING = "jdbc:mysql://192.168.50.50:3306";
-        
-        /** Connection string to H2 db. */
-        public static final String H2_DB_CONNECTION_STRING =
-                "jdbc:mysql://192.168.50.50:3306";
 
         /** DB user to SendIT_LOKAL db. */
         public static final String SendIT_LOKAL_DB_USER_NAME = "root";

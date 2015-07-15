@@ -12,7 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import pageObjects.CreateAccountPage;
 import pageObjects.HomePage;
 import pageResults.CreateAccountResultPage;
-import utilities.JDBConnection;
 import utilities.TestDataParser;
 
 public class CreateAccountPageTest {
@@ -25,7 +24,7 @@ WebDriver driver;
 	public void setUp() throws Exception {
 		logger.info("About to start the test");
 	    driver = new FirefoxDriver();
-	    JDBConnection.main(null);
+		TestDataParser.updateUserRegister();
 	}
 	
 	@After
@@ -37,7 +36,6 @@ WebDriver driver;
 	@Test
 	public void shouldCreateNewAccount() {
 		logger.info("About to run the test");
-		TestDataParser.updateUserRegister();
 		HomePage onHomePage = new HomePage(driver);
 		onHomePage = onHomePage.navigateToWebApp();
 		CreateAccountPage onCreateAccountPage = onHomePage.checkIfElementsArePresent().clickOnCreateAccount();

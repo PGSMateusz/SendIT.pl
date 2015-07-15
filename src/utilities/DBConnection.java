@@ -17,13 +17,17 @@ public class DBConnection {
      * Statement object for later use.
      */
     private Statement statement;
-
+   
+    /**
+     * Connection type for accesing different databases.
+     * 
+     * @author dabrowsm
+     */
     public enum ConnectionData {
-        /** Application database. */
+       
+    	/** Application database. */
         SendIT_LOKAL(Settings.Common.SendIT_LOKAL_DB_DRIVER, Settings.Common.SendIT_LOKAL_DB_CONNECTION_STRING,
-                Settings.Common.SendIT_LOKAL_DB_USER_NAME, Settings.Common.SendIT_LOKAL_DB_PASSWORD),
-
-        H2(Settings.Common.H2_DB_DRIVER, Settings.Common.H2_DB_CONNECTION_STRING, "", "");
+                Settings.Common.SendIT_LOKAL_DB_USER_NAME, Settings.Common.SendIT_LOKAL_DB_PASSWORD);
 
         /**
          * The JDBC-Driver class.
@@ -53,8 +57,7 @@ public class DBConnection {
          * @param user The user name
          * @param password The password
          */
-        private ConnectionData(final String driver, final String connectionString, final String user,
-                final String password) {
+        private ConnectionData(final String driver, final String connectionString, final String user, final String password) {
             this.driver = driver;
             this.connectionString = connectionString;
             this.user = user;

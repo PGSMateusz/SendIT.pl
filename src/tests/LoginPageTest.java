@@ -19,6 +19,17 @@ public class LoginPageTest {
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
+	
+	
+	public LoginPageTest(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
+	public LoginPageTest() {
+		super();
+	}
+
 	@Before
 	public void setUp() throws Exception {
 		logger.info("About to start the test");

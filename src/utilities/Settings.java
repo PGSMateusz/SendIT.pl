@@ -23,10 +23,10 @@ public class Settings {
         /** Maximum number of periods an action is executed (e.g. refresh of an page) */
         public static final int MAX_WAITING_PERIODS = 20;
 
-        /** Driver class name for SaSo db. */
+        /** Driver class name for SendIT_LOKAL db. */
         public static final String SendIT_LOKAL_DB_DRIVER = "com.mysql.jdbc.Driver";
 
-        /** Connection string to SaSo db. */
+        /** Connection string to SendIT_LOKAL db. */
         public static final String SendIT_LOKAL_DB_CONNECTION_STRING = "jdbc:mysql://192.168.50.50:3306";
 
         /** DB user to SendIT_LOKAL db. */
@@ -46,7 +46,7 @@ public class Settings {
     public static class SendIT {
 
         /** The URL for SendIT. */
-        public static final String SendIT_URL = "http://www.sendit/logowanie";
+        public static final String SendIT_URL = "http://www.sendit/";
        
         /** The logout URL for SendIT. */
         public static final String SendIT_LOGOUT_URL = "";       

@@ -7,6 +7,8 @@ import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import utilities.Settings;
+
 public class AbstractPage {
 
 	protected WebDriver driver;
@@ -23,7 +25,7 @@ public class AbstractPage {
 	}
 	
 	public HomePage navigateToWebApp() {
-		driver.navigate().to("http://www.sendit/");
+		driver.navigate().to(Settings.SendIT.SendIT_URL);
 		return new HomePage(driver);
 		
 	}

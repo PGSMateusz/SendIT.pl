@@ -59,7 +59,7 @@ LoginPageTest accountTest;
 		
 		onSubmitCurrentPage.myCourierPackages();
 		//assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
-		//Assert.assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
+		Assert.assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
 	}
 
 }

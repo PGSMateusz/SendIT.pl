@@ -29,7 +29,7 @@ public class TestDataParser {
         System.out.println("DONE!");
     }
     
-    public static void getLatesUserOrder() throws SQLException {
+    public static void getLatesUserhOrder() throws SQLException {
  
     	final String sql = String.format(
         		"SELECT order_nr FROM sendit_api.`order` WHERE date = (SELECT MAX(date) FROM sendit_api.`order` "
@@ -48,13 +48,13 @@ public class TestDataParser {
 
 	          String order = rs.getString("order_nr");
 
-
-	          //Display values
-	          System.out.print("Order: " + order);
-
 	       }
 	       rs.close();
-      
+
     }
-	
+    
+    
+    
+    
+    
 }

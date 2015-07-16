@@ -1,13 +1,10 @@
 package pageObjects;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import pageResults.LoginResultPage;
+import utilities.Settings;
 
 public class LoginPage extends AbstractPage {
 	
@@ -16,21 +13,11 @@ public class LoginPage extends AbstractPage {
 	}
 
 	// Data Login to the Web Page
-	public LoginPage loginAction() {
-		
-		// Create object of SimpleDateFormat class and decide the format
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-		 
-		//get current date time with Date()
-		Date date = new Date();
-		 
-		// Now format the date
-		String date1= dateFormat.format(date);
-		
+	public LoginPage loginAction() {		
 		driver.findElement(By.id("username")).clear();
-		driver.findElement(By.id("username")).sendKeys("TESTY_AUTOMATYCZNE");
+		driver.findElement(By.id("username")).sendKeys(Settings.SendIT.SendIT_USER);
 		driver.findElement(By.id("password")).clear();
-		driver.findElement(By.id("password")).sendKeys("rambo_" + date1);
+		driver.findElement(By.id("password")).sendKeys(Settings.SendIT.SendIT_PASSWORD);
 		return new LoginPage(driver);
 		
 	}

@@ -1,5 +1,6 @@
 package utilities;
 
+import utilities.GetDate;
 /**
  * Class holding static test data like DB, usernames etc.
  * 
@@ -40,7 +41,7 @@ public class Settings {
     }
 
     /***
-     * Sales Solutions user informations.
+     * SendIT user informations.
      */
     public static class SendIT {
 
@@ -54,7 +55,7 @@ public class Settings {
         public static final String SendIT_USER = "TESTY_AUTOMATYCZNE";
 
         /** The SendIT password. */
-        public static final String SendIT_PASSWORD = "rambo_20150715";
+        public static final String SendIT_PASSWORD = "rambo_" + GetDate.main(null);
         
     }
 }

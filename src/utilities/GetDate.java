@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class GetDate {
  
- public static void main(String[] args) {
+ public static String main(String[] args) {
  
  // Create object of SimpleDateFormat class and decide the format
  DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
@@ -21,10 +21,13 @@ public class GetDate {
  Date date = new Date();
  
  // Now format the date
- String date1= dateFormat.format(date);
+ String date1 = dateFormat.format(date);
  
  // Print the Date
  System.out.println(date1);
+
+ return date1;
  
- }
+  }
+
 }

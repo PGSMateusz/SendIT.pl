@@ -18,8 +18,6 @@ public class LoginPageTest {
 	WebDriver driver;
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
-
-	
 	
 	public LoginPageTest(WebDriver driver) {
 		super();

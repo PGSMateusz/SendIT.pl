@@ -21,7 +21,7 @@ public class TestDataParser {
         System.out.println("Connecting to a selected database...");
         final DBConnection dbConnection = new DBConnection(ConnectionData.SendIT_LOKAL);
         System.out.println("Connected database successfully...");
-        //dbConnection.runSqlStatement(sql); // Nie wiedzieæ czemu nie ³yka tego
+        //dbConnection.runSqlStatement(sql); 
         System.out.println("Creating statement...");
         dbConnection.runSqlUpdate(sql);
         System.out.println("Execute...");
@@ -37,7 +37,7 @@ public class TestDataParser {
         System.out.println("Connecting to a selected database...");
         final DBConnection dbConnection = new DBConnection(ConnectionData.SendIT_LOKAL);
         System.out.println("Connected database successfully...");
-        dbConnection.runSqlStatement(sql); // Nie wiedzieæ czemu nie ³yka tego
+        dbConnection.runSqlStatement(sql); 
         System.out.println("Creating statement...");
         //dbConnection.runSqlUpdate(sql);
         System.out.println("Execute...");

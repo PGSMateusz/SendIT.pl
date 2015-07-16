@@ -1,7 +1,5 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import java.util.logging.Logger;
 
 import org.junit.After;
@@ -58,7 +56,6 @@ LoginPageTest accountTest;
 		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKOÑCZONA"));	
 		
 		onSubmitCurrentPage.myCourierPackages();
-		//assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
 		Assert.assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
 	}
 

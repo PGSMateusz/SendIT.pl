@@ -1,7 +1,5 @@
 package utilities;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import utilities.DBConnection.ConnectionData;
@@ -29,28 +27,20 @@ public class TestDataParser {
         System.out.println("DONE!");
     }
     
-    public static void getLatesUserhOrder() throws SQLException {
+    public static String getLatesUserOrder() {
  
     	final String sql = String.format(
-        		"SELECT order_nr FROM sendit_api.`order` WHERE date = (SELECT MAX(date) FROM sendit_api.`order` "
-        		+ "WHERE s_email = 'dariusz.juzwik@allegro.pl') AND s_email = 'dariusz.juzwik@allegro.pl';");
+    			"SELECT MAX(order_nr) as MAX_NO FROM sendit_api.`order` where s_email = 'dariusz.juzwik@allegro.pl'");
         System.out.println("Connecting to a selected database...");
         final DBConnection dbConnection = new DBConnection(ConnectionData.SendIT_LOKAL);
-        System.out.println("Connected database successfully...");
-        dbConnection.runSqlStatement(sql); 
-        System.out.println("Creating statement...");
-        //dbConnection.runSqlUpdate(sql);
-        System.out.println("Execute...");
+        final String lastNo = dbConnection.getSingleDbValue(sql);
+        logger.info(String.format("lastNo='%s'", lastNo));
         dbConnection.disconnect();
-        System.out.println("DONE!");
-        ResultSet rs = dbConnection.runSqlStatement(sql);
-	      while(rs.next()){
-
-	          String order = rs.getString("order_nr");
-
-	       }
-	       rs.close();
-
+        
+        final String newLastNo = String.valueOf(Long.parseLong(lastNo) + 1);
+        logger.info(String.format("NewLastNo='%s'", newLastNo));
+        System.out.println(newLastNo);
+        return newLastNo;
     }
     
     

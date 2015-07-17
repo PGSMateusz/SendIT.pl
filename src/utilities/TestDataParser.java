@@ -33,18 +33,14 @@ public class TestDataParser {
     			"SELECT MAX(order_nr) as MAX_NO FROM sendit_api.`order` where s_email = 'dariusz.juzwik@allegro.pl'");
         System.out.println("Connecting to a selected database...");
         final DBConnection dbConnection = new DBConnection(ConnectionData.SendIT_LOKAL);
+        System.out.println("Connected database successfully...");
         final String lastNo = dbConnection.getSingleDbValue(sql);
+        System.out.println("Creating statement...");
+        System.out.println("Execute...");
         logger.info(String.format("lastNo='%s'", lastNo));
         dbConnection.disconnect();
-        
-        final String newLastNo = String.valueOf(Long.parseLong(lastNo) + 1);
-        logger.info(String.format("NewLastNo='%s'", newLastNo));
-        System.out.println(newLastNo);
-        return newLastNo;
+        System.out.println("DONE!");
+        return lastNo;
     }
-    
-    
-    
-    
-    
+       
 }

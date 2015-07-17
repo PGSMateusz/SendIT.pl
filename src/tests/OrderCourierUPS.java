@@ -20,7 +20,6 @@ public class OrderCourierUPS {
 WebDriver driver;
 LoginPageTest accountTest; 
 
-
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
 	@Before

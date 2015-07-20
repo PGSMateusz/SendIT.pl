@@ -12,12 +12,16 @@ public class CheckingMenuHeadersResultPage extends AbstractPage {
 		super(driver, errorCollector);
 	}
 
-	public String getConfirmationMessageH1() {
-		return driver.findElement(By.cssSelector("h1")).getText();
+	public String getConfirmationMessageOferta() {
+		return driver.findElement(By.cssSelector(".offer>h2")).getText();
 	}
 	
-	public String getConfirmationMessageH2() {
-		return driver.findElement(By.cssSelector(".offer>h2")).getText();
+	public String getConfirmationMessageTools() {
+		return driver.findElement(By.cssSelector(".tools>h2")).getText();
+	}
+	
+	public String getConfirmationMessageSubHeader() {
+		return driver.findElement(By.cssSelector(".structSubHeader>h1")).getText();
 	}
 	
 }

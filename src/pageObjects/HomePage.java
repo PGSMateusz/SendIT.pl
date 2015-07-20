@@ -32,27 +32,27 @@ public class HomePage extends AbstractPage{
 //	}
 	
 	public HomePage clickOnAccountNormal() {
-		driver.findElement(By.cssSelector("li.submitNormal>a")).click();
+		driver.findElement(By.cssSelector(".accountNormal>a")).click();
 		return new HomePage(driver, errorCollector);
 	}
 	
 	public HomePage clickOnToolsNormal() {
-		driver.findElement(By.cssSelector("li.toolsNormal>a")).click();
+		driver.findElement(By.cssSelector(".toolsNormal>a")).click();
 		return new HomePage(driver, errorCollector);
 	}
 	
 	public HomePage clickOnAllegroNormal() {
-		driver.findElement(By.cssSelector("li.allegroNormal>a")).click();
+		driver.findElement(By.cssSelector(".allegroNormal>a")).click();
 		return new HomePage(driver, errorCollector);
 	}
 	
 	public HomePage clickOnFaqNormal() {
-		driver.findElement(By.cssSelector("li.faqNormal>a")).click();
+		driver.findElement(By.cssSelector(".faqNormal>a")).click();
 		return new HomePage(driver, errorCollector);
 	}
 	
 	public HomePage clickOnContactNormal() {
-		driver.findElement(By.cssSelector("li.contactNormal>a")).click();
+		driver.findElement(By.cssSelector(".contactNormal>a")).click();
 		return new HomePage(driver, errorCollector);
 	}
 	

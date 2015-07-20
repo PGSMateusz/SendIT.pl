@@ -13,6 +13,7 @@ import pageObjects.HomePage;
 import pageObjects.OrderCourierPage;
 import pageResults.OrderCourierResultPage;
 import tests.LoginPageTest;
+import utilities.TestDataParser;
 
 public class OrderCourierDPD {
 	
@@ -54,6 +55,7 @@ LoginPageTest accountTest;
 		Assert.assertTrue(onResultPage.getEndConfirmationMessage().contains("TRANSAKCJA ZAKOÑCZONA"));	
 		
 		onSubmitCurrentPage.myCourierPackages();
+		Assert.assertEquals(TestDataParser.getLatesUserOrder(), onResultPage.getLatesCourierPackagesMessage());
 	}
 
 }

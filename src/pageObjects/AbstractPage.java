@@ -12,10 +12,11 @@ import utilities.Settings;
 public class AbstractPage {
 
 	protected WebDriver driver;
-	protected ErrorCollector errorCollector;
+	protected static ErrorCollector errorCollector;
 	
-	public AbstractPage (WebDriver driver){
+	public AbstractPage (WebDriver driver, ErrorCollector errorCollector){
 		this.driver = driver;
+		this.errorCollector = errorCollector;
 	    this.driver.manage().window().maximize();
 	    this.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -26,7 +27,7 @@ public class AbstractPage {
 	
 	public HomePage navigateToWebApp() {
 		driver.navigate().to(Settings.SendIT.SendIT_URL);
-		return new HomePage(driver);
+		return new HomePage(driver, errorCollector);
 		
 	}
 	

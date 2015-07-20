@@ -8,7 +8,7 @@ import pageObjects.AbstractPage;
 public class LoginResultPage extends AbstractPage{
 
 	public LoginResultPage(WebDriver driver) {
-		super(driver);
+		super(driver, errorCollector);
 	}
 	
 	public String getConfirmationMessage() {

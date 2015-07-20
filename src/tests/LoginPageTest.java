@@ -43,7 +43,7 @@ public class LoginPageTest {
 	@Test
 	public void shouldLoginIntoAccount() {
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver);
+		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();
 		LoginPage onLoginPage = onHomePage.checkIfElementsArePresent().clickOnLogin();
 		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();

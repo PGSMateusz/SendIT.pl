@@ -1,12 +1,13 @@
 package pageObjects;
 
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends AbstractPage{
 
-	public HomePage(WebDriver driver) {
-		super(driver);
+	public HomePage(WebDriver driver, ErrorCollector errorCollector) {
+		super(driver, errorCollector);
 	}
 
 	public LoginPage clickOnLogin() {
@@ -30,7 +31,7 @@ public class HomePage extends AbstractPage{
 	public HomePage checkIfElementsArePresent() {
 		if(!isElementPresent(By.cssSelector("section.about > h2"))) errorCollector.addError(new Throwable("brak nag³ówka 'Czym jest Sendit.pl?'"));
 		if(!isElementPresent(By.cssSelector("section.news > h2"))) errorCollector.addError(new Throwable("brak nag³ówka 'Aktualnoœci'"));
-		return new HomePage(driver);
+		return new HomePage(driver, errorCollector);
 	}
 	
 }

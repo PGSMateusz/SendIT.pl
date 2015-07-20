@@ -8,7 +8,7 @@ import pageResults.CreateAccountResultPage;
 public class CreateAccountPage extends AbstractPage {
 
 	public CreateAccountPage(WebDriver driver) {
-		super(driver);
+		super(driver, errorCollector);
 		// TODO Auto-generated constructor stub
 	}
 	

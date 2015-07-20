@@ -8,7 +8,7 @@ import pageObjects.AbstractPage;
 public class OrderCourierResultPage extends AbstractPage {
 
 	public OrderCourierResultPage(WebDriver driver) {
-		super(driver);
+		super(driver, errorCollector);
 	}
 
 	public String getConfirmationMessage() {

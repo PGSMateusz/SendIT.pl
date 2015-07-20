@@ -40,7 +40,7 @@ LoginPageTest accountTest;
 	public void shouldSubmitNewPackage() {
 		//Nadaj Paczkê
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver);
+		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();
 		OrderCourierPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
 		OrderCourierResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();

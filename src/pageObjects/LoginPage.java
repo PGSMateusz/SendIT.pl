@@ -9,7 +9,7 @@ import utilities.Settings;
 public class LoginPage extends AbstractPage {
 	
 	public LoginPage(WebDriver driver) {
-		super(driver);
+		super(driver, errorCollector);
 	}
 
 	// Data Login to the Web Page

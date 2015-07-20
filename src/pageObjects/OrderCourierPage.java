@@ -9,7 +9,7 @@ import pageResults.OrderCourierResultPage;
 public class OrderCourierPage extends AbstractPage {
 
 	public OrderCourierPage(WebDriver driver) {
-		super(driver);
+		super(driver, errorCollector);
 	}
 	
 	public OrderCourierPage submitActionFromTemplate() {

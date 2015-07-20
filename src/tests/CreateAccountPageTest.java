@@ -36,7 +36,7 @@ WebDriver driver;
 	@Test
 	public void shouldCreateNewAccount() {
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver);
+		HomePage onHomePage = new HomePage(driver, null);
 		onHomePage = onHomePage.navigateToWebApp();
 		CreateAccountPage onCreateAccountPage = onHomePage.checkIfElementsArePresent().clickOnCreateAccount();
 		CreateAccountResultPage onResultPage = onCreateAccountPage.checkIfElementsArePresent().createAccountAction().sumbitForm();

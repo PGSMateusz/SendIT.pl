@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -8,7 +9,7 @@ import pageResults.OrderCourierResultPage;
 
 public class OrderCourierPage extends AbstractPage {
 
-	public OrderCourierPage(WebDriver driver) {
+	public OrderCourierPage(WebDriver driver, ErrorCollector errorCollector) {
 		super(driver, errorCollector);
 	}
 	
@@ -20,7 +21,7 @@ public class OrderCourierPage extends AbstractPage {
 
 	public OrderCourierResultPage acceptParcel() {
 		driver.findElement(By.cssSelector(".acceptParcel")).click();
-		return new OrderCourierResultPage(driver);
+		return new OrderCourierResultPage(driver, errorCollector);
 	}
 	
 	public OrderCourierPage submitOrder() {
@@ -41,7 +42,7 @@ public class OrderCourierPage extends AbstractPage {
 	// Assertions on existing Web elements
 	public LoginPage checkIfElementsArePresent() {
 		if(!isElementPresent(By.cssSelector(".structSubHeader>h1"))) errorCollector.addError(new Throwable("brak nag³ówka 'NADAJ PACZKÊ'"));
-		return new LoginPage(driver);
+		return new LoginPage(driver, errorCollector);
 	}
 	
 }

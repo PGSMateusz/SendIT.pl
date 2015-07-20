@@ -1,5 +1,6 @@
 package pageResults;
 
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -7,7 +8,7 @@ import pageObjects.AbstractPage;
 
 public class LoginResultPage extends AbstractPage{
 
-	public LoginResultPage(WebDriver driver) {
+	public LoginResultPage(WebDriver driver, ErrorCollector errorCollector) {
 		super(driver, errorCollector);
 	}
 	

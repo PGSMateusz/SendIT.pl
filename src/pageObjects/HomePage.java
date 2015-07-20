@@ -12,19 +12,19 @@ public class HomePage extends AbstractPage{
 
 	public LoginPage clickOnLogin() {
 		driver.findElement(By.cssSelector("li.login>a")).click();
-		return new LoginPage(driver);
+		return new LoginPage(driver, errorCollector);
 
 	}
 	
 	public CreateAccountPage clickOnCreateAccount() {
 		driver.findElement(By.cssSelector("li.create>a")).click();
-		return new CreateAccountPage(driver);
+		return new CreateAccountPage(driver, errorCollector);
 
 	}
 	
 	public OrderCourierPage clickOnSubmitNormal() {
 		driver.findElement(By.cssSelector("li.submitNormal>a")).click();
-		return new OrderCourierPage(driver);
+		return new OrderCourierPage(driver, errorCollector);
 	
 	}
 	

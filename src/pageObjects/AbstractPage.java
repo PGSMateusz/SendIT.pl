@@ -11,8 +11,8 @@ import utilities.Settings;
 
 public class AbstractPage {
 
-	protected WebDriver driver;
-	protected static ErrorCollector errorCollector;
+	protected final WebDriver driver;
+	protected final ErrorCollector errorCollector;
 	
 	public AbstractPage (WebDriver driver, ErrorCollector errorCollector){
 		this.driver = driver;

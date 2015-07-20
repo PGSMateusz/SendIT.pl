@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -19,6 +20,7 @@ public class OrderCourierDPD {
 	
 WebDriver driver;
 LoginPageTest accountTest;
+private ErrorCollector errorCollector;
 
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
@@ -40,7 +42,7 @@ LoginPageTest accountTest;
 	public void shouldSubmitNewPackage() {
 		//Nadaj Paczkê
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver, null);
+		HomePage onHomePage = new HomePage(driver, errorCollector);
 		onHomePage = onHomePage.navigateToWebApp();
 		OrderCourierPage onSubmitCurrentPage = onHomePage.checkIfElementsArePresent().clickOnSubmitNormal();
 		OrderCourierResultPage onResultPage = onSubmitCurrentPage.submitActionFromTemplate().acceptParcel();

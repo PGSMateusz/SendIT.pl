@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,6 +17,8 @@ import pageResults.LoginResultPage;
 public class LoginPageTest {
 
 	WebDriver driver;
+
+	private ErrorCollector errorCollector;
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 	
@@ -43,7 +46,7 @@ public class LoginPageTest {
 	@Test
 	public void shouldLoginIntoAccount() {
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver, null);
+		HomePage onHomePage = new HomePage(driver, errorCollector);
 		onHomePage = onHomePage.navigateToWebApp();
 		LoginPage onLoginPage = onHomePage.checkIfElementsArePresent().clickOnLogin();
 		LoginResultPage onResultPage = onLoginPage.checkIfElementsArePresent().loginAction().submitForm();

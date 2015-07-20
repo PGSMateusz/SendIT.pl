@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -20,6 +21,7 @@ LoginPageTest accountTest;
 
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 	private HomePage onCheckingMenuHeaders;
+	private ErrorCollector errorCollector;
 
 	@Before
 	public void setUp() throws Exception {
@@ -38,7 +40,7 @@ LoginPageTest accountTest;
 	@Test
 	public void shouldCheckAllWebHeaders() throws InterruptedException {
 		//Checking headers
-		HomePage onHomePage = new HomePage(driver, null);
+		HomePage onHomePage = new HomePage(driver, errorCollector);
 		CheckingMenuHeadersResultPage onMainPage = new CheckingMenuHeadersResultPage(driver, null) ;  
 		onHomePage = onHomePage.navigateToWebApp();
 		

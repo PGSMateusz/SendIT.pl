@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,6 +18,8 @@ import utilities.TestDataParser;
 public class CreateAccountPageTest {
 
 WebDriver driver;
+
+private ErrorCollector errorCollector;
 	
 	private static final Logger logger = Logger.getLogger(LoginPageTest.class.getName());
 
@@ -36,7 +39,7 @@ WebDriver driver;
 	@Test
 	public void shouldCreateNewAccount() {
 		logger.info("About to run the test");
-		HomePage onHomePage = new HomePage(driver, null);
+		HomePage onHomePage = new HomePage(driver, errorCollector);
 		onHomePage = onHomePage.navigateToWebApp();
 		CreateAccountPage onCreateAccountPage = onHomePage.checkIfElementsArePresent().clickOnCreateAccount();
 		CreateAccountResultPage onResultPage = onCreateAccountPage.checkIfElementsArePresent().createAccountAction().sumbitForm();

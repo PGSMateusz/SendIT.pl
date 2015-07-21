@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.HomePage;
+import pageObjects.OrderCourierPage;
 import pageResults.CheckingMenuHeadersResultPage;
 import tests.LoginPageTest;
 
@@ -41,7 +42,7 @@ LoginPageTest accountTest;
 	public void shouldCheckAllWebHeaders() throws InterruptedException {
 		//Checking headers
 		HomePage onHomePage = new HomePage(driver, errorCollector);
-		CheckingMenuHeadersResultPage onMainPage = new CheckingMenuHeadersResultPage(driver, null) ;  
+		CheckingMenuHeadersResultPage onMainPage = new CheckingMenuHeadersResultPage(driver, errorCollector) ;  
 		onHomePage = onHomePage.navigateToWebApp();
 		
 		logger.info("OFERTA");
@@ -49,6 +50,11 @@ LoginPageTest accountTest;
 		Assert.assertTrue(onMainPage.getConfirmationMessageOferta().contains("OFERTA"));
         System.out.println("OFERTA Header - OK...");
 		
+        logger.info("NADAJ PACZKÊ");
+		setOnCheckingMenuHeaders(onHomePage.clickOnSubmitNormal());
+		Assert.assertTrue(onMainPage.getConfirmationMessageSubHeader().contains("NADAJ PACZKÊ"));
+        System.out.println("NADAJ PACZKÊ Header - OK...");
+        
         logger.info("MOJE KONTO");
 		setOnCheckingMenuHeaders(onHomePage.clickOnAccountNormal());
 		Assert.assertTrue(onMainPage.getConfirmationMessageSubHeader().contains("MOJE DANE"));
@@ -70,9 +76,13 @@ LoginPageTest accountTest;
         System.out.println("FAQ Header - OK...");
         
         logger.info("KONTAKT");
-		setOnCheckingMenuHeaders(onHomePage.clickOnFaqNormal());
+		setOnCheckingMenuHeaders(onHomePage.clickOnContactNormal());
 		Assert.assertTrue(onMainPage.getConfirmationMessageSubHeader().contains("KONTAKT"));
         System.out.println("KONTAKT Header - OK...");
+	}
+
+	private void setOnCheckingMenuHeaders(OrderCourierPage clickOnSubmitNormal) {
+
 	}
 
 	public HomePage getOnCheckingMenuHeaders() {

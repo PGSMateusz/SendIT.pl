@@ -26,11 +26,6 @@ public class HomePage extends AbstractPage{
 		return new OrderCourierPage(driver, errorCollector);
 	}
 	
-//	public HomePage clickOnSubmitNormal() {
-//		driver.findElement(By.cssSelector("li.submitNormal>a")).click();
-//		return new HomePage(driver, errorCollector);
-//	}
-	
 	public HomePage clickOnAccountNormal() {
 		driver.findElement(By.cssSelector(".accountNormal>a")).click();
 		return new HomePage(driver, errorCollector);
